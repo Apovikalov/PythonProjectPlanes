@@ -2,7 +2,7 @@
 api = AeroplanesAPI()
 
 # Получение информации о самолетах с opensky-network.org
-aeroplanes = api.get_aeroplanes(‘Spain’)
+aeroplanes = api.get_aeroplanes('Spain')
 
 # Преобразование набора данных в список объектов
 aeroplanes = Aeroplane.cast_to_object_list(aeroplanes)

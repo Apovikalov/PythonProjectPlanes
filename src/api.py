@@ -43,4 +43,4 @@ class APIAdapter:
         self.aeroplanes = response.json()
 
 api = APIAdapter()
-api.get_aeroplanes('Canada')
+print(api.get_aeroplanes('Canada'))
