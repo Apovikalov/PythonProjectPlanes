@@ -1,7 +1,15 @@
 from requests import get
+from abc import ABC, abstractmethod
 
 
-class APIAdapter:
+class Parser(ABC):
+
+    @abstractmethod
+    def get_aeroplanes(self, country: str):
+        pass
+
+
+class APIAdapter(Parser):
 
     def __init__(self) -> None:
         self.openstreetmap_url = 'https://nominatim.openstreetmap.org/search'
@@ -12,7 +20,7 @@ class APIAdapter:
         #Headers с user-agent - обязательный параметр при запросе к nominatim.openstreetmap.
         #Вы можете использовать любое название вместо test-app/1.0, например просто test-app.
         headers_nominatim = {
-            'User-Agent': 'test-app/1.0',
+            'User-Agent': 'test-app',
         }
 
         #Указываем параметры: в каком формате возвращать данные и максимальную длину списка стран в ответе.
@@ -41,6 +49,7 @@ class APIAdapter:
 
         #Пример ответа от opensky-network можно посмотреть в задании курсовой.
         self.aeroplanes = response.json()
+
 
 api = APIAdapter()
 print(api.get_aeroplanes('Canada'))
