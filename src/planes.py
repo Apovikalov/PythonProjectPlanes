@@ -12,10 +12,3 @@ class Aeroplane:
         self.flight_speed = flight_speed
         self.flight_height = flight_height
         self.is_on_ground = is_on_ground
-
-    def state_list(self):
-        states = []
-        for i in [self.register_country, self.call_name, self.flight_speed,
-                  self.flight_height, self.is_on_ground]:
-            states.append(i)
-        return states

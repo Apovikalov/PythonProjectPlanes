@@ -1,5 +1,5 @@
 # Создание экземпляра класса для работы с API сайтов с самолетами
-from src.func import filter_aeroplanes
+from src.func import filter_aeroplanes, state_list, get_aeroplanes_by_altitude, sort_aeroplanes
 from src.planes import Aeroplane
 
 api = AeroplanesAPI()
@@ -8,15 +8,15 @@ api = AeroplanesAPI()
 aeroplanes = api.get_aeroplanes('Spain')
 
 # Преобразование набора данных в список объектов
-aeroplanes = Aeroplane.state_list(aeroplanes)
+aeroplanes = state_list(aeroplanes)
 
 # Пример работы конструктора класса с одним самолетом
 aeroplane = Aeroplane("United States", "UAL1621", 268.79, 10203.18, False)
 
 # Сохранение информации в файл
 json_saver = JSONSaver()
-json_saver.add_aeroplane(vacancy)
-json_saver.delete_aeroplane(vacancy)
+json_saver.add_aeroplane(aeroplane)
+json_saver.delete_aeroplane(aeroplane)
 
 # Функция для взаимодействия с пользователем
 def user_interaction():
