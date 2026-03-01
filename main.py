@@ -1,8 +1,9 @@
 # Создание экземпляра класса для работы с API сайтов с самолетами
-from src.func import filter_aeroplanes, state_list, get_aeroplanes_by_altitude, sort_aeroplanes
+from src.api import APIAdapter
+from src.func import filter_aeroplanes, state_list, get_aeroplanes_by_altitude, sort_aeroplanes, get_top_aeroplanes
 from src.planes import Aeroplane
 
-api = AeroplanesAPI()
+api = APIAdapter()
 
 # Получение информации о самолетах с opensky-network.org
 aeroplanes = api.get_aeroplanes('Spain')
@@ -31,7 +32,7 @@ def user_interaction():
 
     sorted_aeroplanes = sort_aeroplanes(ranged_aeroplanes)
     top_aeroplanes = get_top_aeroplanes(sorted_aeroplanes, top_n)
-    print_aeroplanes(top_aeroplanes)
+    print(top_aeroplanes)
 
 
 if __name__ == "__main__":

@@ -22,3 +22,9 @@ def get_aeroplanes_by_altitude(aeroplanes, altitude_range):
 def sort_aeroplanes(ranged_aeroplanes):
     sorted_aeroplanes = sorted(ranged_aeroplanes, key=lambda x: x.flight_height)
     return sorted_aeroplanes
+
+def get_top_aeroplanes(sorted_aeroplanes, top_n: int):
+    top_aeroplanes = []
+    for i in range(0, top_n):
+        top_aeroplanes.append(sorted_aeroplanes[i])
+    return top_aeroplanes

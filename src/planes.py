@@ -12,3 +12,8 @@ class Aeroplane:
         self.flight_speed = flight_speed
         self.flight_height = flight_height
         self.is_on_ground = is_on_ground
+
+    @classmethod
+    def from_dict(cls, dict_item: dict) -> object:
+        """Создание объекта из словаря"""
+        return cls(**dict_item)
