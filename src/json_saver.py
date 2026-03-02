@@ -1,9 +1,9 @@
 import json
 import os
 from abc import ABC, abstractmethod
-from src.planes import Aeroplane
 
 from data.config import ROOT_DIR
+from src.planes import Aeroplane
 
 
 class AbstractJSONSaver(ABC):

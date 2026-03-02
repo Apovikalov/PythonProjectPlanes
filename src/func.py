@@ -5,12 +5,14 @@ def state_list(self):
         states.append(i)
     return states
 
+
 def filter_aeroplanes(aeroplanes, filter_words):
     filtered_aeroplanes = []
     for plane in aeroplanes:
         if plane.register_country in filter_words:
             filtered_aeroplanes.append(plane)
     return filtered_aeroplanes
+
 
 def get_aeroplanes_by_altitude(aeroplanes, alt_start: float, alt_end: float):
     ranged_aeroplanes = []
@@ -19,9 +21,11 @@ def get_aeroplanes_by_altitude(aeroplanes, alt_start: float, alt_end: float):
             ranged_aeroplanes.append(plane)
     return ranged_aeroplanes
 
+
 def sort_aeroplanes(aeroplanes):
     sorted_aeroplanes = sorted(aeroplanes, key=lambda x: x.flight_height, reverse=True)
     return sorted_aeroplanes
+
 
 def get_top_aeroplanes(sorted_aeroplanes, top_n: int):
     top_aeroplanes = []
