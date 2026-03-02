@@ -18,7 +18,6 @@ class APIAdapter(Parser):
 
     def get_aeroplanes(self, country: str) -> None:
         #Headers с user-agent - обязательный параметр при запросе к nominatim.openstreetmap.
-        #Вы можете использовать любое название вместо test-app/1.0, например просто test-app.
         headers_nominatim = {
             'User-Agent': 'test-app',
         }

@@ -10,7 +10,8 @@ api = APIAdapter()
 aeroplanes = api.get_aeroplanes('Spain')
 
 # Преобразование набора данных в список объектов
-aeroplanes = state_list(aeroplanes)
+if aeroplanes.type is not None:
+    aeroplanes = state_list(aeroplanes)
 
 # Пример работы конструктора класса с одним самолетом
 aeroplane = Aeroplane("United States", "UAL1621", 268.79, 10203.18, False)

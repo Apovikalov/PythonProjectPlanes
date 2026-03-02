@@ -36,3 +36,11 @@ def test_filter(plane_1, plane_2, plane_3, plane_4):
 
 def test_altitude(plane_1, plane_2, plane_3, plane_4):
     assert get_aeroplanes_by_altitude([plane_1, plane_2, plane_3, plane_4], 10000, 15000) == [plane_1, plane_4]
+
+def test_sort(plane_1, plane_2, plane_3, plane_4):
+    sorted_aeroplanes = sort_aeroplanes([plane_1, plane_2, plane_3, plane_4])
+    assert sorted_aeroplanes == [plane_2, plane_4, plane_1, plane_3]
+
+def test_top_aeroplanes(plane_1, plane_2, plane_3, plane_4):
+    sorted_aeroplanes = sort_aeroplanes([plane_1, plane_2, plane_3, plane_4])
+    assert get_top_aeroplanes(sorted_aeroplanes, 2) == [plane_2, plane_4]

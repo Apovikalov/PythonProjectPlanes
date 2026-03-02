@@ -19,8 +19,8 @@ def get_aeroplanes_by_altitude(aeroplanes, alt_start: float, alt_end: float):
             ranged_aeroplanes.append(plane)
     return ranged_aeroplanes
 
-def sort_aeroplanes(ranged_aeroplanes):
-    sorted_aeroplanes = sorted(ranged_aeroplanes, key=lambda x: x.flight_height)
+def sort_aeroplanes(aeroplanes):
+    sorted_aeroplanes = sorted(aeroplanes, key=lambda x: x.flight_height, reverse=True)
     return sorted_aeroplanes
 
 def get_top_aeroplanes(sorted_aeroplanes, top_n: int):
