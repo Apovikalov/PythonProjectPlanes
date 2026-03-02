@@ -31,7 +31,7 @@ class JSONSaver(AbstractJSONSaver):
         self.filename = filename = "aeroplanes.json"
         self.full_path = os.path.join(ROOT_DIR, filename)
 
-    def dump_to_file(self, aeroplanes_objects: list):
+    def dump_to_file(self, aeroplanes_objects):
         """Запись данных с api hh в файл"""
         with open(self.full_path, 'w', encoding='UTF-8') as file:
             json.dump(aeroplanes_objects, file, ensure_ascii=False, indent=4)

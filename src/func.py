@@ -12,10 +12,10 @@ def filter_aeroplanes(aeroplanes, filter_words):
             filtered_aeroplanes.append(plane)
     return filtered_aeroplanes
 
-def get_aeroplanes_by_altitude(aeroplanes, altitude_range):
+def get_aeroplanes_by_altitude(aeroplanes, alt_start: float, alt_end: float):
     ranged_aeroplanes = []
     for plane in aeroplanes:
-        if plane.flight_height in altitude_range:
+        if alt_start <= plane.flight_height <= alt_end:
             ranged_aeroplanes.append(plane)
     return ranged_aeroplanes
 
