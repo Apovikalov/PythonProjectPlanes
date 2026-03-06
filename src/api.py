@@ -13,9 +13,9 @@ class Parser(ABC):
 class APIAdapter(Parser):
 
     def __init__(self) -> None:
-        self.openstreetmap_url = 'https://nominatim.openstreetmap.org/search'
-        self.opensky_url = 'https://opensky-network.org/api/states/all?'
-        self.aeroplanes = None
+        self.__openstreetmap_url = 'https://nominatim.openstreetmap.org/search'
+        self.__opensky_url = 'https://opensky-network.org/api/states/all?'
+        self.__aeroplanes = None
 
     def get_aeroplanes(self, country: str) -> None:
         # Headers с user-agent - обязательный параметр при запросе к nominatim.openstreetmap.
@@ -30,7 +30,7 @@ class APIAdapter(Parser):
             'limit': 1,
         }
 
-        response = get(url=self.openstreetmap_url, params=params_nominatim, headers=headers_nominatim)
+        response = get(url=self.__openstreetmap_url, params=params_nominatim, headers=headers_nominatim)
 
         data = response.json()
 
@@ -45,10 +45,13 @@ class APIAdapter(Parser):
             'lomax': geo_coordinates[3],
         }
 
-        response = get(url=self.opensky_url, params=params)
+        response = get(url=self.__opensky_url, params=params)
 
         # Пример ответа от opensky-network можно посмотреть в задании курсовой.
-        self.aeroplanes = response.json()
+        if response.status_code == 200:
+            self.__aeroplanes = response.json()
+        else:
+            print(f"Ошибка: {response.status_code}")
 
 
 api = APIAdapter()
