@@ -1,5 +1,7 @@
 class Aeroplane:
     """Класс для работы с информацией о самолётах"""
+    __slots__ = ('__register_country', '__call_name', '__flight_speed',
+                 '__flight_height', '__is_on_ground')
     __register_country: str   # страна регистрации
     __call_name: str   # позывной
     __flight_speed: float   # скорость полёта

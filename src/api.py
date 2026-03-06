@@ -18,6 +18,7 @@ class APIAdapter(Parser):
         self.__aeroplanes = None
 
     def get_aeroplanes(self, country: str) -> None:
+        """Возвращает список самолётов по стране"""
         # Headers с user-agent - обязательный параметр при запросе к nominatim.openstreetmap.
         headers_nominatim = {
             'User-Agent': 'test-app',
