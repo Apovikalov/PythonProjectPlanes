@@ -1,0 +1,16 @@
+[
+  {
+    "register_country": "United States",
+    "call_name": "UAL1621",
+    "flight_speed": 268.79,
+    "flight_height": 10203.18,
+    "is_on_ground": "False"
+  },
+  {
+    "register_country": "Russia",
+    "call_name": "UAL5040",
+    "flight_speed": 235.19,
+    "flight_height": 15234.06,
+    "is_on_ground": "False"
+  }
+]
