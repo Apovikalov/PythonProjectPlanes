@@ -1,4 +1,4 @@
-def state_list(self):
+def state_list(self) -> list:
     """Возвращает все значения атрибутов самолёта"""
     states = []
     for i in [self.register_country, self.call_name, self.flight_speed,
