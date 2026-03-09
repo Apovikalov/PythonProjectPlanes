@@ -12,8 +12,16 @@ class Aeroplane:
                  flight_height, is_on_ground):
         self.__register_country = register_country
         self.__call_name = call_name
-        self.__flight_speed = flight_speed
-        self.__flight_height = flight_height
+        if flight_speed <= 0:
+            print("Скорость должна быть положительным числом")
+            raise ValueError
+        else:
+            self.__flight_speed = flight_speed
+        if flight_height <= 0:
+            print("Высота должна быть положительным числом")
+            raise ValueError
+        else:
+            self.__flight_height = flight_height
         self.__is_on_ground = is_on_ground
 
     @property
