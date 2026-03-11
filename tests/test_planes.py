@@ -1,7 +1,6 @@
 import pytest
 
-from src.func import  (compare_height, filter_aeroplanes, get_aeroplanes_by_altitude,
-                       get_top_aeroplanes, sort_aeroplanes, state_list)
+from src.func import filter_aeroplanes, get_aeroplanes_by_altitude, get_top_aeroplanes, sort_aeroplanes, state_list
 from src.planes import Aeroplane
 
 
@@ -23,6 +22,11 @@ def plane_3():
 @pytest.fixture
 def plane_4():
     return Aeroplane("Oman", "UAL3319", 242.81, 13217.77, False)
+
+
+@pytest.fixture
+def plane_5():
+    return Aeroplane("United States", "UAL5555", 240.01, 13217.77, False)
 
 
 @pytest.fixture
@@ -61,6 +65,7 @@ def test_top_aeroplanes(plane_1, plane_2, plane_3, plane_4):
     assert get_top_aeroplanes(sorted_aeroplanes, 2) == [plane_2, plane_4]
 
 
-def test_compare_height(plane_1, plane_2, plane_3, plane_4):
-    assert compare_height(plane_1, plane_2) == "Самолёт UAL5040 летает выше, чем UAL1621"
-    assert compare_height(plane_2, plane_3) == "Самолёт UAL5040 летает выше, чем UAL2276"
+def test_compare_height(plane_1, plane_2, plane_3, plane_4, plane_5):
+    assert plane_1.flight_height < plane_2.flight_height
+    assert plane_2.flight_height > plane_3.flight_height
+    assert plane_4.flight_height == plane_5.flight_height

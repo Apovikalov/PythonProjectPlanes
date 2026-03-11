@@ -1,6 +1,3 @@
-from src.planes import Aeroplane
-
-
 def state_list(self) -> list:
     """Возвращает все значения атрибутов самолёта"""
     states = []
@@ -45,11 +42,19 @@ def get_top_aeroplanes(sorted_aeroplanes: list, top_n: int) -> list:
     return top_aeroplanes
 
 
-def compare_height(plane1: Aeroplane, plane2: Aeroplane) -> str:
-    """Сравнение самолётов по высоте полёта"""
-    if plane1.flight_height > plane2.flight_height:
-        return f"Самолёт {plane1.call_name} летает выше, чем {plane2.call_name}"
-    elif plane1.flight_height < plane2.flight_height:
-        return f"Самолёт {plane2.call_name} летает выше, чем {plane1.call_name}"
+def valid_speed(self, flight_speed: float):
+    if flight_speed <= 0:
+        print("Скорость должна быть положительным числом")
+        raise ValueError
     else:
-        return f"У самолётов {plane1.call_name} и {plane2.call_name} одинаковая высота полёта"
+        self.__flight_speed = flight_speed
+    return flight_speed
+
+
+def valid_height(self, flight_height: float):
+    if flight_height <= 0:
+        print("Высота должна быть положительным числом")
+        raise ValueError
+    else:
+        self.__flight_height = flight_height
+    return flight_height

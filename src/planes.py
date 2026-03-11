@@ -24,6 +24,15 @@ class Aeroplane:
             self.__flight_height = flight_height
         self.__is_on_ground = is_on_ground
 
+    def __eq__(self, other):
+        return self.flight_height == other.flight_height
+
+    def __gt__(self, other):
+        return self.flight_height > other.flight_height
+
+    def __lt__(self, other):
+        return self.flight_height < other.flight_height
+
     @property
     def register_country(self):
         return self.__register_country

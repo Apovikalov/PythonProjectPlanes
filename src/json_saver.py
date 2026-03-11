@@ -24,12 +24,12 @@ class AbstractJSONSaver(ABC):
 
 class JSONSaver(AbstractJSONSaver):
     """Класс для сохранения, чтения и удаления данных о самолётах в формате JSON."""
-    filename: str
+    __filename: str
     full_path: str
 
     def __init__(self):
-        self.filename = filename = "aeroplanes.json"
-        self.full_path = os.path.join(ROOT_DIR, filename)
+        self.__filename = "aeroplanes.json"
+        self.full_path = os.path.join(ROOT_DIR, self.__filename)
 
     def dump_to_file(self, aeroplanes_objects):
         """Запись данных с api hh в файл"""
